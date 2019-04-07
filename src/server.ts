@@ -14,8 +14,12 @@ function run() {
     const bot = new line.Client(lineConfig);
     const app = express();
 
+    app.get("/", async (req, res) => {
+        await res.send("Hello world!");
+    });
+
     app.post("/bot/webhook", line.middleware(lineConfig), async (req, res) => {
-        res.status(200);
+        await res.status(200);
 
         const promises = req.body.events.map((event: MessageEvent) =>
             bot.replyMessage(event.replyToken, {type: "text", text: "テスト"}));
