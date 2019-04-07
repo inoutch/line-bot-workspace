@@ -1,5 +1,6 @@
 import express from "express";
-import line, {MessageEvent} from "@line/bot-sdk";
+import * as line from "@line/bot-sdk";
+import {MessageEvent} from "@line/bot-sdk";
 
 function run() {
     const channelAccessToken = process.env.LINE_ACCESS_TOKEN;

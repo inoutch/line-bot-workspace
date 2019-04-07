@@ -5,8 +5,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "tsc",
-    "start": "node ./dst/server.js",
-    "heroku-postbuild": "yarn build"
+    "start": "node ./dst/server.js"
   },
   "dependencies": {
     "@line/bot-sdk": "^6.6.0",
