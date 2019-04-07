@@ -1,11 +1,12 @@
 import express from "express";
 import line, {MessageEvent} from "@line/bot-sdk";
 
-(() => {
+function run() {
     const channelAccessToken = process.env.LINE_ACCESS_TOKEN;
     const channelSecret = process.env.LINE_CHANNEL_SECRET;
 
     if (channelSecret == undefined || channelAccessToken == undefined) {
+        console.error("set environment variables [LINE_ACCESS_TOKEN, LINE_CHANNEL_SECRET]");
         return;
     }
 
@@ -22,4 +23,10 @@ import line, {MessageEvent} from "@line/bot-sdk";
     });
 
     app.listen(process.env.PORT || 3000);
-})();
+}
+
+try {
+    run();
+} catch (e) {
+    console.error(e);
+}
