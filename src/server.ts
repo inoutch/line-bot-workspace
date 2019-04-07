@@ -20,7 +20,7 @@ function run() {
     });
 
     app.post("/bot/webhook", line.middleware(lineConfig), async (req, res) => {
-        res.status(200);
+        res.sendStatus(200);
 
         const promises = req.body.events.map((event: MessageEvent) =>
             bot.replyMessage(event.replyToken, {type: "text", text: "テスト"}));
